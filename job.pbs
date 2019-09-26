@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=32
+#PBS -l walltime=36:00:00
+#PBS -N peptide_conversion
+#PBS -q cpu
+#PBS -l gres=ccm
+#PBS -l mem=64000MB
+#PBS -V
+
+cd ~/neoantigen_proj
+
+module load ccm
+echo "starting run"
+#ccmrun python na2aa.py tester2.txt tester2_proc.txt
+#ccmrun python par_na2aa_v2.py tester2.1 32
+ccmrun python neoantigen_toolbox.py 59 8
